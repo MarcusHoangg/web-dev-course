@@ -1,11 +1,13 @@
-// app.js
 const express = require('express');
 const app = express();
-const { getRoot } = require('./controllers'); // import
 const port = 3001;
 
-app.get('/', getRoot); // dùng làm callback
+// route gốc
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 
+// chạy server
 app.listen(port, () => {
-  console.log(`The server is running at http://localhost:${port}`);
+  console.log(`Example app listening on port ${port}`);
 });
