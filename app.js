@@ -1,9 +1,11 @@
-const { format, addDays } = require('date-fns');
+// app.js
+const express = require('express');
+const app = express();
+const { getRoot } = require('./controllers'); // import
+const port = 3001;
 
-const currentDate = new Date();
+app.get('/', getRoot); // dùng làm callback
 
-const formattedDate = format(currentDate, 'MMMM dd, yyyy');
-console.log('Formatted Date:', formattedDate);
-
-const futureDate = addDays(currentDate, 7);
-console.log('Future Date:', format(futureDate, 'MMMM dd, yyyy'));
+app.listen(port, () => {
+  console.log(`The server is running at http://localhost:${port}`);
+});
